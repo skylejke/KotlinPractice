@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.NavHostFragment
 import com.example.kotlinpractice.databinding.FragmentFirstBinding
 
 
@@ -23,12 +24,38 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.SecondFragmentBtn.setOnClickListener {
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container_view, SecondFragment())
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-    }
+        // val fragmentManager = requireActivity().supportFragmentManager
 
+        val navController = NavHostFragment.findNavController(this)
+
+        binding.SecondFragmentBtn.setOnClickListener {
+            navController.navigate(R.id.action_firstFragment_to_secondFragment)
+        }
+
+        binding.ThirdFragmentBtn.setOnClickListener {
+            navController.navigate(R.id.action_firstFragment_to_thirdFragment)
+        }
+
+        binding.backBtn.setOnClickListener {
+            navController.popBackStack()
+        }
+
+//        binding.SecondFragmentBtn.setOnClickListener {
+//            val transaction = fragmentManager.beginTransaction()
+//            transaction.replace(R.id.fragment_container_view, SecondFragment())
+//            transaction.addToBackStack(null)
+//            transaction.commit()
+//        }
+//
+//        binding.ThirdFragmentBtn.setOnClickListener {
+//            val transaction = fragmentManager.beginTransaction()
+//            transaction.replace(R.id.fragment_container_view, ThirdFragment())
+//            transaction.addToBackStack(null)
+//            transaction.commit()
+//        }
+//
+//        binding.backBtn.setOnClickListener {
+//            fragmentManager.popBackStack()
+//        }
+    }
 }

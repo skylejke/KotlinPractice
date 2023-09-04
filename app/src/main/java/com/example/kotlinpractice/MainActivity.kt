@@ -2,6 +2,7 @@ package com.example.kotlinpractice
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
 import com.example.kotlinpractice.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,4 +14,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
+
 }
