@@ -24,7 +24,7 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // val fragmentManager = requireActivity().supportFragmentManager
+
 
         val navController = NavHostFragment.findNavController(this)
 
@@ -40,6 +40,8 @@ class FirstFragment : Fragment() {
             navController.popBackStack()
         }
 
+//        val fragmentManager = requireActivity().supportFragmentManager
+//
 //        binding.SecondFragmentBtn.setOnClickListener {
 //            val transaction = fragmentManager.beginTransaction()
 //            transaction.replace(R.id.fragment_container_view, SecondFragment())
